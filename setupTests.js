@@ -1,7 +1,6 @@
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 
-test('example test', () => {
-  const element = document.createElement('div');
-  element.textContent = 'Hello, World!';
-  expect(element).toHaveTextContent('Hello');
-});
+const element = document.createElement('div');
+element.textContent = 'Hello, World!';
+
+expect(element).toHaveTextContent('Hello, World!');
