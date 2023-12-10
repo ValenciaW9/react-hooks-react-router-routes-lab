@@ -1,98 +1,70 @@
-# Basic Routes Lab (v5)
+# Getting Started with Create React App
 
-## Learning Goals
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-- Use the `<Route>` component to display different components based on the URL
-- Use the `<NavBar>` component to allow client-side navigation
+## Available Scripts
 
-## Introduction
+In the project directory, you can run:
 
-In this lab we are going to build out a Movie application that has routes for a
-Home Page, Actors Page, Movies Page and Directors Page. Our goal is to provide
-routes and links for these 4 pages.
+### `npm start`
 
-Here is what each page of our app should look like when we are done with this lab:
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-- [Home Page](https://s3.amazonaws.com/learn-verified/react-router-lab-home-page.png)
-- [Movies Page](https://s3.amazonaws.com/learn-verified/react-router-lab-movies-page.png)
-- [Directors Page](https://s3.amazonaws.com/learn-verified/react-router-lab-directors-page.png)
-- [Actors Page](https://s3.amazonaws.com/learn-verified/react-router-lab-actors-page.png)
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-Let's work through this one component at a time.
+### `npm test`
 
-## Setup
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-Our `src` folder contains the following:
+### `npm run build`
 
-```txt
-src/
-├── data.js
-├── index.js
-└── components/
-    ├── App.js
-    ├── Actors.js
-    ├── Directors.js
-    ├── Home.js
-    ├── Movies.js
-    └── NavBar.js
-```
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-All of the file and module imports are done for you, so you just need to focus
-on the JSX for these components.
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-### index.js
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-Our `index.js` file is completed for us. It loads the `BrowserRouter` component
-from React Router, as well as `App` as the top level component.
+### `npm run eject`
 
-### data.js
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-This file contains seed data for **Actors**, **Movies**, and **Directors**.
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-## Components
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-### App
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-Inside this component, we'll need to render our `NavBar` and four **React
-Router** `Route` components with the following paths:
+## Learn More
 
-- `/movies`: should render the `Movies` component
-- `/directors`: should render the `Directors` component
-- `/actors`: should render the `Actors` component
-- `/`: should render the `Home` component
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-### NavBar
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-This component needs to render four `NavLink` components. They will be for `/`,
-`/movies`, `/directors`, `/actors`, in this order (test checks for this).
+### Code Splitting
 
-### Home
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-This component should render the text `Home Page` in an `<h1>`.
+### Analyzing the Bundle Size
 
-### Movies
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-This component should render the text `Movies Page` in an `<h1>`, and make a new
-`<div>` for each movie. The `<div>` should contain the movie's title, time and a
-`<ul>` with a list of its genres, each within their own `<li>`.
+### Making a Progressive Web App
 
-### Directors
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-This component should render the text `Directors Page` in an `<h1>`, and make a
-new `<div>` for each director. The `<div>` should contain the director's name
-and a `<ul>` with a list of their movies.
+### Advanced Configuration
 
-### Actors
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-This component should render the text `Actors Page` in an `<h1>`, and make a new
-`<div>` for each actor. The `<div>` should contain the actor's name and a `<ul>`
-with a list of their movies.
+### Deployment
 
-> Note: The tests will count how many `<div>`s are nested inside your `Movies`,
-> `Directors`, and `Actors` components. So to get tests to pass, you must create
-> _exactly one_ `<div>` for each movie, director, or actor, and no additional
-> nested `<div>`s in those components.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-## Resources
+### `npm run build` fails to minify
 
-- [React Router](https://v5.reactrouter.com/web/guides/quick-start)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
