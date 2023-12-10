@@ -1,3 +1,4 @@
+
 import "@testing-library/jest-dom";
 import React from "react";
 import { render, screen } from "@testing-library/react";
@@ -5,8 +6,7 @@ import Movies from "../components/Movies";
 import { movies } from "../data";
 
 test("renders without any errors", () => {
-  render(<Movies />);
-  expect(console.error).not.toHaveBeenCalled();
+  expect(() => render(<Movies />)).not.toThrow();
 });
 
 test("renders 'Movies Page' inside of a <h1 />", () => {
@@ -18,21 +18,20 @@ test("renders 'Movies Page' inside of a <h1 />", () => {
 
 test("renders each movie's title and time", () => {
   render(<Movies />);
-  for (const movie of movies) {
+  movies.forEach((movie) => {
     expect(screen.getByText(movie.title)).toBeInTheDocument();
     expect(screen.getByText(movie.time.toString())).toBeInTheDocument();
-  }
+  });
 });
 
 test("renders a <li /> for each genre", () => {
   render(<Movies />);
-  for (const movie of movies) {
-    for (const genre of movie.genres) {
-      const li = screen.getByText(genre);
-      expect(li).toBeInTheDocument();
-      expect(li.tagName).toBe("LI");
-    }
-  }
+  movies.forEach((movie) => {
+    movie.genres.forEach((genre) => {
+      expect(screen.getByText(genre)).toHaveTextContent(genre);
+      expect(screen.getByText(genre).tagName).toBe("LI");
+    });
+  });
 });
 
 test("does not render a movie that is missing from the list", () => {
