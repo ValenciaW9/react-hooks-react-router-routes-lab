@@ -42,7 +42,7 @@ test("does not render a movie that is missing from the list", () => {
 
 test("does not render any movies when the list is empty", () => {
   render(<Movies movieList={[]} />);
-  expect(screen.queryByRole("heading", { name: /Movies Page/i })).toBeInTheDocument();
+  expect(screen.getByRole("heading", { name: /Movies Page/i })).toBeInTheDocument();
   expect(screen.queryByText(/Time:/i)).not.toBeInTheDocument();
   expect(screen.queryByRole("list")).not.toBeInTheDocument();
 });
