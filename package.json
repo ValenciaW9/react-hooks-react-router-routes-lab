@@ -1,26 +1,32 @@
 {
-  "name": "my-react-app",
+  "name": "react-hooks-react-router-routes-lab",
   "version": "0.1.0",
-  "private": true , "dependencies": {
-
-    "@testing-library/jest-dom":"^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
+  "private": true,
+  "dependencies": {
+    "eslint-plugin-import": "^2.29.0",
+    "history": "^5.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "react-router-dom": "^6.20.1",
+    "react-scripts": "^5.0.1"
+  },
+  "devDependencies": {
+    "@learn-co-curriculum/jest-learn-reporter": "^0.1.0",
+    "@testing-library/jest-dom": "^6.1.5",
+    "@testing-library/react": "^14.1.2",
+    "@testing-library/user-event": "^14.5.1",
+    "jest": "^29.7.0",
+    "mocha": "^10.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
+    "test": "echo \".results.json\" && react-scripts test --reporters=@learn-co-curriculum/jest-learn-reporter --reporters=default --watchAll",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {

@@ -2,54 +2,57 @@ import "@testing-library/jest-dom";
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { createMemoryHistory } from "history";
-import { BrowserRouter } from "react-router-dom";
+import { Router } from "react-router-dom";
 import App from "../components/App";
 
 test("renders the <NavBar /> component", () => {
-  const { container } = render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  );
-  expect(container.querySelector(".navbar")).toBeInTheDocument();
+  render(<App />);
+  expect(screen.getByText(/Home/)).toBeInTheDocument();
+  expect(screen.getByText(/Movies/)).toBeInTheDocument();
+  expect(screen.getByText(/Directors/)).toBeInTheDocument();
+  expect(screen.getByText(/Actors/)).toBeInTheDocument();
 });
 
 test('renders the Home component using the <Route path="/">', () => {
-  window.history.pushState({}, "", "/");
+  const history = createMemoryHistory();
+  history.push("/");
   render(
-    <BrowserRouter>
+    <Router history={history}>
       <App />
-    </BrowserRouter>
+    </Router>
   );
-  expect(screen.queryByText(/Home Page/g)).toBeInTheDocument();
-});
-
-test('renders the Actors component using the <Route path="/actors">', () => {
-  window.history.pushState({}, "", "/actors");
-  render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  );
-  expect(screen.queryByText(/Actors Page/g)).toBeInTheDocument();
-});
-
-test('renders the Directors component using the <Route path="/directors">', () => {
-  window.history.pushState({}, "", "/directors");
-  render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  );
-  expect(screen.queryByText(/Directors Page/g)).toBeInTheDocument();
+  expect(screen.getByText(/Home Page/)).toBeInTheDocument();
 });
 
 test('renders the Movies component using the <Route path="/movies">', () => {
-  window.history.pushState({}, "", "/movies");
+  const history = createMemoryHistory();
+  history.push("/movies");
   render(
-    <BrowserRouter>
+    <Router history={history}>
       <App />
-    </BrowserRouter>
+    </Router>
   );
-  expect(screen.queryByText(/Movies Page/g)).toBeInTheDocument();
+  expect(screen.getByText(/Movies Page/)).toBeInTheDocument();
+});
+
+test('renders the Directors component using the <Route path="/directors">', () => {
+  const history = createMemoryHistory();
+  history.push("/directors");
+  render(
+    <Router history={history}>
+      <App />
+    </Router>
+  );
+  expect(screen.getByText(/Directors Page/)).toBeInTheDocument();
+});
+
+test('renders the Actors component using the <Route path="/actors">', () => {
+  const history = createMemoryHistory();
+  history.push("/actors");
+  render(
+    <Router history={history}>
+      <App />
+    </Router>
+  );
+  expect(screen.getByText(/Actors Page/)).toBeInTheDocument();
 });

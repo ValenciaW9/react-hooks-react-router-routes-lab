@@ -1,10 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Home from "./Home";
-import Actors from "./Actors";
+import MoviesPage from "./Movies";
 import Directors from "./Directors";
-import Movies from "./Movies";
+import Actors from "./Actors";
 
 function App() {
   return (
@@ -12,8 +12,8 @@ function App() {
       <div>
         <NavBar />
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/movies" component={Movies} />
+          <Route exact path="/" component={Home} />
+          <Route path="/movies" component={MoviesPage} />
           <Route path="/directors" component={Directors} />
           <Route path="/actors" component={Actors} />
         </Switch>
